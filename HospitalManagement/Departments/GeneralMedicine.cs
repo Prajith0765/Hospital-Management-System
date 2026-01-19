@@ -9,15 +9,13 @@ namespace HospitalManagement.Departments
 {
     internal class GeneralMedicine 
     {
-        List<Doctor> doctors;
-
-        public GeneralMedicine()
+        public List<Doctor> GetDoctors()
         {
-            doctors = new List<Doctor>
+            return new List<Doctor>
             {
-                new Doctor("Dr. John Smith", "General Physician", 10),
-                new Doctor("Dr. Emily Johnson", "General Physician", 8),
-                new Doctor("Dr. Michael Brown", "General Physician", 12)
+                new Doctor("Dr. John Smith", "General Physician", 10, "DOC007"),
+                new Doctor("Dr. Emily Johnson", "General Physician", 8, "DOC008"),
+                new Doctor("Dr. Michael Brown", "General Physician", 12, "DOC009")
             };
         }
     }

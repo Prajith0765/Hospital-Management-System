@@ -10,7 +10,7 @@ namespace HospitalManagement.Actions
     internal class PatientOperations
     {
 
-        List<Patient> totalPatients;
+        public List<Patient> totalPatients;
         GetterSetter getSet;
         Patient patient;
         PatientOperations()
@@ -19,12 +19,13 @@ namespace HospitalManagement.Actions
            
             getSet = new GetterSetter();
         }
+
         public string generateId(string prefix)
         {
             string lastId = totalPatients.Last().patientId;
 
             int number = int.Parse(lastId.Substring(3));
-            return "PTO" + (number + 1).ToString("D3");
+            return prefix + (number + 1).ToString("D3");
 
         }
         public void RegisterPatient()

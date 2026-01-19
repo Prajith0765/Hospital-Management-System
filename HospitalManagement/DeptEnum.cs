@@ -8,7 +8,7 @@ namespace HospitalManagement
 {
     internal class DeptEnum
     {
-        enum Dept
+        public enum Dept
         {
             GeneralMedicine = 1,
             Orthopedics = 2,
