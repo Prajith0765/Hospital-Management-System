@@ -10,16 +10,17 @@ namespace HospitalManagement.Entity
     {
 
         public string name;
-        public int num = 1;
-        public int patientId;
+        public string patientId;
+        public char gender;
         public byte age;
         
 
-        public Patient(string name, byte age)
+        public Patient(string name, byte age, char gender, string id)
         {
             this.name = name;
-            this.patientId = num++;
+            this.patientId = id;
             this.age = age;
+            this.gender = gender;
 
         }
     }
