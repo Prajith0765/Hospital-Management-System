@@ -39,10 +39,12 @@ namespace HospitalManagement.Actions
         public void bookAppointment()
         {
             Patient patient = getPatient(getSet.getId());
+            string doctorId = getSet.getId();
             
-            
+
         }
 
+        
 
 
         public Patient getPatient(string id)
