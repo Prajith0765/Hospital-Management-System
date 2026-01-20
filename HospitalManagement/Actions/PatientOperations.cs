@@ -11,9 +11,10 @@ namespace HospitalManagement.Actions
     {
 
         public List<Patient> totalPatients;
+        public Dictionary<string, List<Patient>> appointmentList;
         GetterSetter getSet;
         Patient patient;
-        PatientOperations()
+        public PatientOperations()
         {
             totalPatients = new List<Patient>();
            
@@ -22,8 +23,12 @@ namespace HospitalManagement.Actions
 
         public string generateId(string prefix)
         {
+            if (totalPatients.Count == 0)
+            {
+                return prefix + "001";
+            }
             string lastId = totalPatients.Last().patientId;
-
+           
             int number = int.Parse(lastId.Substring(3));
             return prefix + (number + 1).ToString("D3");
 
@@ -40,13 +45,28 @@ namespace HospitalManagement.Actions
         {
             Patient patient = getPatient(getSet.getId());
             string doctorId = getSet.getId();
-            
+            //DateTime date = getSet.getDate();
+            Doctor doctor = DisplayDoctors.getDoctor(doctorId);
+            doctor.patientsList.Add(patient);
+            Console.WriteLine("Appointment Booked Successfully");
+
+
 
         }
 
-        
+        public void displayPatients()
+        {
+            DisplayDoctors.displayTotalPatients(totalPatients);
+        }
 
 
+        public void updateAppointment()
+        {
+            string patientId = getSet.getId();
+            Patient patient = getPatient(patientId);
+
+        }
+       
         public Patient getPatient(string id)
         {
             Patient patient = totalPatients.Find(x => x.patientId == id);

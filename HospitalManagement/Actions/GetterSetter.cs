@@ -38,5 +38,13 @@ namespace HospitalManagement.Actions
             Console.WriteLine("Enter the ID: ");
             return Console.ReadLine();
         }
+
+        public DateTime getDate()
+        {
+            Console.WriteLine("Enter the Date (yyyy-MM-dd): ");
+            DateTime date;
+            DateTime.TryParse(Console.ReadLine(), out date);
+            return date;
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace HospitalManagement.Entity
         public string doctorName;
         public string doctorType;
         public byte experience;
-        List<Patient> patientsList;
+        public List<Patient> patientsList;
 
         public Doctor(string name, string doctorType, byte experience, string id)
         {
