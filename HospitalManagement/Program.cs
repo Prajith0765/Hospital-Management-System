@@ -1,6 +1,7 @@
 ﻿
 using HospitalManagement;
 using HospitalManagement.Actions;
+using HospitalManagement.Entity;
 
 GetterSetter getterSetter = new GetterSetter();
 PatientOperations patientOperations = new PatientOperations();
@@ -10,8 +11,8 @@ try
 {
 Starting:
     Console.WriteLine("Welcome to Hospital Management System");
-    Console.WriteLine("Select Your Choice:\n1. Display Doctors by Department\n2.Register Patient\n"+
-                   "3.Book Appointment\n4.View Total Patients\n5.Change Appointment\n6.Exit");
+    Console.WriteLine("Select Your Choice:\n1.Display Doctors by Department\n2.Register Patient\n"+
+                   "3.Book Appointment\n4.View Total Patients\n5.View Doctor List\n6.Exit");
     byte opt;
     byte.TryParse(Console.ReadLine(), out opt);
 
@@ -24,13 +25,16 @@ Starting:
             patientOperations.RegisterPatient();
             break;
         case 3:
-            patientOperations.bookAppointment();
+            Patient patient = patientOperations.getPatient(getterSetter.getPatientId());
+            //DateTime date = getSet.getDate();
+            Doctor doctor = DisplayDoctors.getDoctor(getterSetter.getDoctorId());
+            patientOperations.bookAppointment(patient, doctor);
             break;
         case 4:
             patientOperations.displayPatients();
             break;
         case 5:
-            string doctorId = getterSetter.getId();
+            string doctorId = getterSetter.getDoctorId();
             
             DisplayDoctors.displayPatientsOfDoctor(DisplayDoctors.getDoctor(doctorId));
             break;

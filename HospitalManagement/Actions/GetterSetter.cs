@@ -33,9 +33,15 @@ namespace HospitalManagement.Actions
             return gender;
         }
 
-        public string getId()
+        public string getPatientId()
         {
-            Console.WriteLine("Enter the ID: ");
+            Console.WriteLine("Enter the Patient ID: ");
+            return Console.ReadLine();
+        }
+
+        public string getDoctorId()
+        {
+            Console.WriteLine("Enter the Doctor ID: ");
             return Console.ReadLine();
         }
 

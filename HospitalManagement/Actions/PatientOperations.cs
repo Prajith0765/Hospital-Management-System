@@ -41,17 +41,11 @@ namespace HospitalManagement.Actions
 
         }
 
-        public void bookAppointment()
+        public void bookAppointment(Patient patient, Doctor doctor)
         {
-            Patient patient = getPatient(getSet.getId());
-            string doctorId = getSet.getId();
-            //DateTime date = getSet.getDate();
-            Doctor doctor = DisplayDoctors.getDoctor(doctorId);
             doctor.patientsList.Add(patient);
+            DisplayDoctors.displayPatientsOfDoctor(doctor);
             Console.WriteLine("Appointment Booked Successfully");
-
-
-
         }
 
         public void displayPatients()
@@ -62,7 +56,7 @@ namespace HospitalManagement.Actions
 
         public void updateAppointment()
         {
-            string patientId = getSet.getId();
+            string patientId = getSet.getPatientId();
             Patient patient = getPatient(patientId);
 
         }
